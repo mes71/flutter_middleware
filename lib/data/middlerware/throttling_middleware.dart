@@ -10,6 +10,7 @@ class ThrottlingMiddleware extends Middleware {
 
   ThrottlingMiddleware(this._requestPerMinute) {
     _currentTime = DateTime.now().millisecond;
+    _request = 0;
   }
 
   @override
