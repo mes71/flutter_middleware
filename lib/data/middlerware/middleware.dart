@@ -14,12 +14,12 @@ abstract class Middleware {
   }
 
   //Subclass will implement this method with concrete checks.
-  bool check(String email, String password);
+  T check<T>(String email, String password);
 
   //Runs check on the next object in chain or ends traversing if we 're in
   //last object in chain
   @protected
-  bool checkNext(String email, String password) {
-    return _next?.check(email, password) ?? true;
+  T? checkNext<T>(String email, String password) {
+    return _next?.check(email, password);
   }
 }
